@@ -22,7 +22,11 @@ public class TestTikTakToeGame
     )]
     public void TestMakeMove(int lineEntry, int columnEntry, char playerEntry, char[] expected)
     {
-        throw new NotImplementedException();
+        TikTakToeGame result = new();
+
+        result.makeMove(lineEntry, columnEntry, playerEntry);
+
+        result.board.Should().BeEquivalentTo(fromArrayToMultiDimArray(expected, 3, 3));
     }
     
     [Theory(DisplayName = "Deve imprimir o tabuleiro")]
@@ -40,7 +44,17 @@ public class TestTikTakToeGame
     )]
     public void TestPrintBoard(char[] entry, string[] expected)
     {
-        throw new NotImplementedException();
+        TikTakToeGame result = new()
+        {
+            board = fromArrayToMultiDimArray(entry, 3, 3)
+        };
+
+        var stringWriter = new StringWriter();
+        Console.SetOut(stringWriter);
+
+        result.printBoard();
+
+        stringWriter.ToString().Trim().Should().Be(string.Join(" ",expected));
     }
 
     [Theory(DisplayName = "Deve retornar corretamente se o jogo acabou ou não")]
@@ -55,14 +69,32 @@ public class TestTikTakToeGame
     )]
     public void TestIsGameOver(char[] entry, char expectedWinner, bool expectedReturn)
     {
-        throw new NotImplementedException();
+        TikTakToeGame instance = new()
+        {
+            board = fromArrayToMultiDimArray(entry, 3, 3)
+        };
+
+        bool result = instance.isGameOver();
+
+        instance.winner.Should().Be(expectedWinner);
+        result.Should().Be(expectedReturn);
     }
 
     [Theory(DisplayName = "Deve imprimir o vencedor correto do jogo")]
-    [InlineData(' ', "Empate! Deu velha!")]
+    [InlineData(' ', "Empate! Deu Velha!")]
     public void TestPrintResults(char entry, string expected)
     {
-        throw new NotImplementedException();
+        TikTakToeGame result = new()
+        {
+            winner = entry
+        };
+
+        var stringWriter = new StringWriter();
+        Console.SetOut(stringWriter);
+
+        result.printResults();
+
+        stringWriter.ToString().Trim().Should().Be(expected);
     }
 
     public static char[,] fromArrayToMultiDimArray(char[] array, int lines, int columns)
