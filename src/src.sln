@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TikTakToe", "TikTakToe\TikT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TikTakToe.Test", "TikTakToe.Test\TikTakToe.Test.csproj", "{4C9B9326-EAF3-4174-B4FF-692368A7EB59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TikTakToe.Test.Test", "TikTakToe.Test.Test\TikTakToe.Test.Test.csproj", "{E447C13D-1D4C-4A6D-A9B8-B92DADFD16B1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
